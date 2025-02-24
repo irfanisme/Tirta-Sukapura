@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Tirta Air Sukapura - Solusi Air Bersih & Berkualitas</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0077B6',
+                        secondary: '#48CAE4',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    
+    <!-- AOS.js -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-roboto">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-sm z-50" x-data="{ isOpen: false }">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Tirta Air Sukapura" class="h-12">
+                </a>
+                
+                <!-- Mobile menu button -->
+                <button @click="isOpen = !isOpen" class="md:hidden">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors">Tentang Kami</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition-colors">Layanan</a>
+                    <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Proyek</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Kontak</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden" x-show="isOpen" @click.away="isOpen = false">
+                <div class="flex flex-col space-y-4 mt-4 pb-4">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors">Tentang Kami</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition-colors">Layanan</a>
+                    <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Proyek</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
+        <div class="absolute inset-0 z-0">
+            <video class="w-full h-full object-cover opacity-30" autoplay loop muted playsinline>
+                <source src="waterfall.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-poppins font-bold text-white mb-6" data-aos="fade-down" data-aos-delay="200">Menyediakan Air Bersih untuk Masa Depan</h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8" data-aos="fade-up" data-aos-delay="400">Solusi Air Bersih & Berkualitas untuk Masyarakat</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4" data-aos="zoom-in" data-aos-delay="600">
+                <a href="#about" class="px-8 py-3 bg-white text-primary font-semibold rounded-full hover:bg-opacity-90 transition-all hover:ring-4 hover:ring-white/30 hover:scale-105 transform duration-300">Tentang Kami</a>
+                <a href="#contact" class="px-8 py-3 bg-secondary text-white font-semibold rounded-full hover:bg-opacity-90 transition-all hover:ring-4 hover:ring-secondary/30 hover:scale-105 transform duration-300">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6" data-aos="fade-right" data-aos-duration="1200">
+                    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-primary">Komitmen Kami dalam Penyediaan Air Bersih</h2>
+                    <p class="text-gray-600 leading-relaxed">Tirta Air Sukapura berkomitmen untuk menyediakan solusi air bersih yang berkualitas dan berkelanjutan untuk masyarakat. Dengan pengalaman dan teknologi modern, kami memastikan setiap tetes air yang kami sediakan memenuhi standar kualitas tertinggi.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="card-hover p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors duration-300">
+                            <i class="fas fa-tint text-3xl text-primary mb-3 transform transition-transform hover:scale-110 duration-300"></i>
+                            <h3 class="font-semibold text-gray-800 mb-2">Air Berkualitas</h3>
+                            <p class="text-sm text-gray-600">Standar kualitas air yang terjamin dan teruji laboratorium.</p>
+                        </div>
+                        <div class="card-hover p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors duration-300">
+                            <i class="fas fa-clock text-3xl text-primary mb-3 transform transition-transform hover:scale-110 duration-300"></i>
+                            <h3 class="font-semibold text-gray-800 mb-2">Layanan 24/7</h3>
+                            <p class="text-sm text-gray-600">Dukungan teknis dan pelayanan sepanjang waktu.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left" data-aos-duration="1200">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80" alt="Water Treatment Plant" class="rounded-lg shadow-lg w-full transform transition-transform hover:scale-105 duration-500">
+                    <div class="absolute -bottom-6 -left-6 bg-secondary text-white p-6 rounded-lg shadow-lg hover:bg-primary transition-colors duration-300">
+                        <div class="text-4xl font-bold mb-2">15+</div>
+                        <div class="text-sm">Tahun Pengalaman</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute -left-12 -top-12 w-64 h-64 bg-primary rounded-full filter blur-3xl"></div>
+            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-secondary rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">Layanan Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kami menyediakan berbagai solusi air berkualitas untuk memenuhi kebutuhan Anda</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass p-8 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/40 backdrop-blur-sm border border-white/20">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tint text-3xl text-primary group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Penyediaan Air Minum</h3>
+                        <p class="text-gray-600 mb-6">Layanan air minum berkualitas tinggi dengan standar kesehatan terjamin dan proses pengolahan modern.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary hover:text-secondary transition-colors font-semibold group-hover:translate-x-2 duration-300">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass p-8 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/40 backdrop-blur-sm border border-white/20">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tools text-3xl text-primary group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Instalasi Perpipaan</h3>
+                        <p class="text-gray-600 mb-6">Pemasangan dan perawatan sistem perpipaan dengan teknologi modern dan tim ahli berpengalaman.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary hover:text-secondary transition-colors font-semibold group-hover:translate-x-2 duration-300">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass p-8 rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/40 backdrop-blur-sm border border-white/20">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-cogs text-3xl text-primary group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Sistem Distribusi</h3>
+                        <p class="text-gray-600 mb-6">Manajemen distribusi air yang efisien dan merata dengan jangkauan luas dan pemantauan real-time.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary hover:text-secondary transition-colors font-semibold group-hover:translate-x-2 duration-300">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Features -->
+            <div class="grid md:grid-cols-4 gap-6 mt-16">
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-clock text-xl text-primary"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">24/7 Layanan</h4>
+                    <p class="text-sm text-gray-600">Dukungan teknis setiap saat</p>
+                </div>
+
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-xl text-primary"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Terjamin</h4>
+                    <p class="text-sm text-gray-600">Kualitas air teruji lab</p>
+                </div>
+
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hand-holding-water text-xl text-primary"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Eco-Friendly</h4>
+                    <p class="text-sm text-gray-600">Ramah lingkungan</p>
+                </div>
+
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-comments text-xl text-primary"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Konsultasi</h4>
+                    <p class="text-sm text-gray-600">Konsultasi gratis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#0077B6_1px,transparent_0)] bg-[size:40px_40px]"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-sm font-medium text-primary bg-primary/10 px-4 py-2 rounded-full inline-block mb-4">TESTIMONI</span>
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">Apa Kata Mereka?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Dengarkan pengalaman langsung dari pelanggan kami yang telah merasakan kualitas layanan Tirta Air</p>
+            </div>
+            
+            <!-- Swiper Testimonials -->
+            <div class="swiper testimonialSwiper relative mx-auto max-w-7xl px-2 sm:px-4" data-aos="fade-up">
+                <div class="swiper-wrapper pb-16">
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next !hidden md:!flex after:text-primary after:content-['next'] after:text-sm"></div>
+                <div class="swiper-button-prev !hidden md:!flex after:text-primary after:content-['prev'] after:text-sm"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination !-bottom-4"></div>
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Budi Santoso</h4>
+                                    <p class="text-gray-600 text-sm">Perumahan Griya Indah</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Layanan air bersih yang sangat memuaskan. Kualitas air selalu terjaga dan pelayanan teknisnya responsif."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Siti Rahayu</h4>
+                                    <p class="text-gray-600 text-sm">Kawasan Bisnis Central</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(4.5)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Tim teknisi yang profesional dan ramah. Masalah air selalu diselesaikan dengan cepat dan tuntas."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2021</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Ahmad Hidayat</h4>
+                                    <p class="text-gray-600 text-sm">Apartemen Skyline</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Sistem filtrasi air yang dipasang bekerja sangat baik. Kualitas air sekarang jauh lebih baik dan lebih hemat."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2019</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Maya Putri</h4>
+                                    <p class="text-gray-600 text-sm">Restoran Seafood Bay</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Kualitas air yang konsisten membuat bisnis restoran kami berjalan lancar. Pelayanan yang sangat profesional!"</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2022</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Rudi Hartono</h4>
+                                    <p class="text-gray-600 text-sm">Hotel Grand Paradise</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Sistem pengolahan air yang dipasang sangat efisien. Para tamu hotel kami sangat puas dengan kualitas airnya."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 6 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Dewi Lestari</h4>
+                                    <p class="text-gray-600 text-sm">Klinik Sehat Sejahtera</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(4.5)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Air bersih sangat penting untuk klinik kami. Tirta Air memberikan solusi yang tepat dan terjangkau."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2021</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 7 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Eko Prasetyo</h4>
+                                    <p class="text-gray-600 text-sm">Pabrik Tekstil Maju Jaya</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Sistem pengolahan air industri yang dipasang sangat efektif. Menghemat biaya operasional pabrik kami."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2019</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 8 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Linda Wijaya</h4>
+                                    <p class="text-gray-600 text-sm">Perumahan Elite Garden</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Instalasi sistem air yang rapi dan profesional. Tekanan air selalu stabil di seluruh kompleks perumahan."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 9 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Hendra Gunawan</h4>
+                                    <p class="text-gray-600 text-sm">Gedung Perkantoran Menara Biru</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Maintenance rutin dan respons cepat terhadap masalah. Sangat membantu operasional gedung kami."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2021</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 10 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <div class="flex items-center mb-6">
+                                <div class="relative">
+                                    <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Customer" class="w-16 h-16 rounded-full mr-4 border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                                    <div class="absolute -bottom-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">Verified</div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg group-hover:text-primary transition-colors duration-300">Anita Susanti</h4>
+                                    <p class="text-gray-600 text-sm">Kompleks Apartemen Sunrise</p>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-quote-left text-4xl text-primary/10 absolute -top-4 -left-2"></i>
+                                <p class="text-gray-600 italic text-lg leading-relaxed pl-6">"Pelayanan yang luar biasa dan sistem air yang sangat efisien. Penghuni apartemen sangat senang dengan kualitas airnya."</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100">
+                                <p class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-2 text-primary"></i>Pelanggan sejak 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-next text-primary"></div>
+                <div class="swiper-button-prev text-primary"></div>
+                
+                <!-- Add pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <script>
+                new Swiper('.testimonialSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    effect: 'slide',
+                    speed: 800,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                        dynamicBullets: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 24
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 24
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 32
+                        }
+                    }
+                });
+            </script>
+            
+            <!-- Partners -->
+            <div class="mt-20 bg-gray-50 py-16">
+                <div class="container mx-auto px-4">
+                    <h3 class="text-3xl font-poppins font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Mitra Kami</h3>
+                    <div class="partners-slider swiper-container" data-aos="fade-up">
+                        <div class="swiper-wrapper">
+                <!-- Partner 1 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra1.png" alt="Tech Solutions" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra2.png" alt="Global Water" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 3 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra3.png" alt="Eco Systems" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 4 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra4.png" alt="Pure Aqua" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 5 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra5.png" alt="Smart Water" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 6 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra6.png" alt="Hydro Tech" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 7 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra7.png" alt="Aqua Solutions" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 8 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra8.png" alt="Water Pro" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 9 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra9.png" alt="Clean Tech" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                <!-- Partner 10 -->
+                <div class="swiper-slide flex items-center justify-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full h-32 flex items-center justify-center">
+                        <img src="mitra10.png" alt="H2O Industries" class="partner-logo max-h-20 w-auto">
+                    </div>
+                </div>
+                        </div>
+                        <!-- Add pagination and navigation -->
+                         <br>
+                         <br>
+                        <div class="swiper-pagination mt-8"></div>
+                        <div class="swiper-button-prev text-primary"></div>
+                        <div class="swiper-button-next text-primary"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <!-- Company Info -->
+                <div class="text-center sm:text-left">
+                    <img src="logo.png" alt="Tirta Air Sukapura" class="h-10 mb-6 brightness-100 mx-auto sm:mx-0">
+                    <p class="text-gray-400 mb-6 leading-relaxed">Solusi air bersih terpercaya untuk masa depan yang lebih baik. Melayani dengan komitmen dan teknologi modern.</p>
+                    <div class="flex space-x-6 justify-center sm:justify-start">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="text-center sm:text-left mt-8 sm:mt-0">
+                    <h3 class="text-xl font-semibold mb-6">Tautan Cepat</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Layanan</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Proyek</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-xl font-semibold mb-6">Layanan Kami</h3>
+                    <ul class="space-y-4">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Penyediaan Air Minum</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Instalasi Perpipaan</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Sistem Distribusi</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Manajemen Air</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-xl font-semibold mb-6">Hubungi Kami</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
+                            Jl. Sukapura No. 123<br>Bandung, Jawa Barat 40285
+                        </p>
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            +62 22 1234 5678
+                        </p>
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            info@tirtaair.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Tirta Air Sukapura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.testimonialSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 800,
+            touchRatio: 1.5,
+            watchSlidesProgress: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 16
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    effect: 'slide'
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 32,
+                    effect: 'slide'
+                }
+            }
+        });
+
+        // Initialize Partners Swiper
+        const partnersSwiper = new Swiper('.partners-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+            effect: 'slide',
+            speed: 800,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Tirta Air Sukapura</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0077B6',
+                        secondary: '#48CAE4',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- AOS.js -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-roboto">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-sm z-50" x-data="{ isOpen: false }">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Tirta Air Sukapura" class="h-12">
+                    <span class="text-primary font-poppins font-semibold text-xl">Tirta Air Sukapura</span>
+                </a>
+                
+                <!-- Mobile menu button -->
+                <button @click="isOpen = !isOpen" class="md:hidden">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Beranda</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-primary transition-colors">Tentang Kami</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors">Layanan</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-primary transition-colors">Proyek</a>
+                    <a href="contact.html" class="text-primary font-semibold">Kontak</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden" x-show="isOpen" @click.away="isOpen = false">
+                <div class="flex flex-col space-y-4 mt-4 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Beranda</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-primary transition-colors">Tentang Kami</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors">Layanan</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-primary transition-colors">Proyek</a>
+                    <a href="contact.html" class="text-primary font-semibold">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="pt-32 pb-16 bg-gradient-to-b from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-poppins font-bold mb-4" data-aos="fade-up">Hubungi Kami</h1>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Kami siap membantu Anda dengan solusi air bersih yang sesuai dengan kebutuhan</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-right">
+                    <h2 class="text-2xl font-poppins font-semibold text-gray-800 mb-6">Kirim Pesan</h2>
+                    <form class="space-y-6">
+                        <div class="floating-label">
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder=" ">
+                            <label for="name">Nama Lengkap</label>
+                        </div>
+                        <div class="floating-label">
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder=" ">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="floating-label">
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder=" ">
+                            <label for="phone">Nomor Telepon</label>
+                        </div>
+                        <div>
+                            <textarea rows="4" id="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Pesan Anda"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary transition-colors">Kirim Pesan</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Office Address -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-gray-800 mb-2">Kantor Pusat</h3>
+                                <p class="text-gray-600">Jl. Sukapura No. 123<br>Bandung, Jawa Barat 40123</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Numbers -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-2xl text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-gray-800 mb-2">Telepon</h3>
+                                <p class="text-gray-600">+62 22 123 4567<br>+62 812 3456 7890</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-2xl text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-gray-800 mb-2">Email</h3>
+                                <p class="text-gray-600">info@tirtaairsukapura.com<br>support@tirtaairsukapura.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-2xl text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-gray-800 mb-2">Jam Kerja</h3>
+                                <p class="text-gray-600">Senin - Jumat: 08:00 - 17:00<br>Sabtu: 08:00 - 12:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="mt-12 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7985117905396!2d107.6245697!3d-6.9175957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e87a1766b131%3A0x401576d14fed5b0!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1635134567890!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <!-- Company Info -->
+                <div class="text-center sm:text-left">
+                    <img src="logo.png" alt="Tirta Air Sukapura" class="h-10 mb-6 brightness-100 mx-auto sm:mx-0">
+                    <p class="text-gray-400 mb-6 leading-relaxed">Solusi air bersih terpercaya untuk masa depan yang lebih baik. Melayani dengan komitmen dan teknologi modern.</p>
+                    <div class="flex space-x-6 justify-center sm:justify-start">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="text-center sm:text-left mt-8 sm:mt-0">
+                    <h3 class="text-xl font-semibold mb-6">Tautan Cepat</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Layanan</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Proyek</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-xl font-semibold mb-6">Layanan Kami</h3>
+                    <ul class="space-y-4">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Penyediaan Air Minum</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Instalasi Perpipaan</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Sistem Distribusi</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Manajemen Air</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-xl font-semibold mb-6">Hubungi Kami</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
+                            Jl. Sukapura No. 123<br>Bandung, Jawa Barat 40285
+                        </p>
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            +62 22 1234 5678
+                        </p>
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            info@tirtaair.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Tirta Air Sukapura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
